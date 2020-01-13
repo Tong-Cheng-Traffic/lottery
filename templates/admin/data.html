@@ -1,0 +1,66 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+{{ super() }}
+<style type="text/css">
+    .form-wrapper form {
+        margin: 0 auto;
+        width: 200px;
+        text-align: center;
+    }
+</style>
+<script type="text/javascript">
+    function submitForm(event) {
+        var hasChecked = false
+        var chks = document.getElementsByTagName('input');
+        for (var i = 0; i < chks.length; i ++) {
+            if (chks[i].checked) {
+                hasChecked = true;
+                break;
+            }
+        }
+        if (!hasChecked) {
+            event.preventDefault();
+            return;
+        }
+        if (confirm("此操作不可逆，确定要执行吗？")) {
+            if (!confirm("请再次确认！")) {
+                event.preventDefault();
+            }
+        } else {
+            event.preventDefault();
+        }
+    }
+</script>
+{% endblock head_css %}
+{% block body %}
+{{ super() }}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">请选择要清空的数据</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-wrapper">
+            <form method="POST" action="">
+                <div class="checkbox">
+                    <label>
+                        <input id="chkStaff" type="checkbox" name="staff"> 员工列表
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="chkLottery" type="checkbox" name="lottery"> 奖项列表
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="chkLucky" type="checkbox" name="lucky"> 中奖信息
+                    </label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-warning" onclick="submitForm(event)">清空已选</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

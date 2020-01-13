@@ -1,0 +1,14 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+{{ super() }}
+{% endblock head_css %}
+{% block body %}
+{{ super() }}
+<div class="jumbotron">
+    <h1>欢迎使用！</h1>
+    <br>
+    <p>本系统由火车票系统研发前端组提供技术支持</p>
+    <br>
+    <p><a class="btn btn-primary btn-lg" href="./staff/" role="button">开始使用</a></p>
+</div>
+{% endblock body %}

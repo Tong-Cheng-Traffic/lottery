@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .ab {
+                width: 1px;
+                height: 1px;
+                background: #000;
+                position: absolute;
+            }
+            .move {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="move"></div>
+    </body>
+    <script>
+        (function() {
+            var x = 0,
+                y = 0,
+                a = 200,
+                b = 100,
+                du = 360,
+                z = 0,
+                arr = [],
+                timer;
+            var go = document.querySelector(".move");
+            for (var i = 0; i < du; i++) {
+                var divs = document.createElement("div"),
+                    hudu = (Math.PI / 180) * i,
+                    x1 = a * Math.sin(hudu) + x,
+                    y1 = y - b * Math.cos(hudu);
+                arr[i] = [];
+                arr[i][0] = x1 - 2;
+                arr[i][1] = y1 - 2;
+                divs.className = "ab c-" + i;
+                divs.style.cssText = "left:" + x1 + "px;top:" + y1 + "px;";
+                document.body.appendChild(divs);
+            }
+            clearInterval(timer);
+            timer = setInterval(function() {
+                if (z >= du) z = 0;
+                go.style.cssText = "left:" + arr[z][0] + "px;top:" + arr[z][1] + "px;";
+                z++;
+            }, 30);
+        })();
+    </script>
+</html>

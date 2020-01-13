@@ -1,0 +1,70 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+    {{ super() }}
+    <style type="text/css">
+        .file-wrapper {
+            position: relative;
+            margin: 120px auto 0;
+            width: 60%;
+            height: 240px;
+            line-height: 220px;
+            border: dashed 10px #ccc;
+            border-radius: 30px;
+            font-size: 50px;
+            text-align: center;
+            color: #ccc;
+        }
+        .file-wrapper #iptFile {
+            opacity: 0;
+            position: absolute;
+            max-width: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+        }
+        .type-group {
+            padding: 50px;
+            text-align: center;
+        }
+        .type-group label {
+            padding: 0 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function submitFile() {
+            var fileEle = document.getElementById('iptFile');
+            if (fileEle.files[0]) {
+                var filename = fileEle.files[0].name;
+                var ext = filename.split('.').pop();
+                if (ext === 'xlsx' || ext === 'xls') {
+                    document.fileForm.submit();
+                } else {
+                    document.fileForm.reset();
+                    alert('请上传Excel文件！');
+                }
+            }
+        }
+    </script>
+{% endblock head_css %}
+{% block body %}
+    {{ super() }}
+    <div class="upload">
+        <div class="file-form-wrapper">
+            <form name="fileForm" method="post" enctype="multipart/form-data">
+                <div class="file-wrapper">
+                    <div>点击上传Excel文件</div>
+                    <input id="iptFile" name="file" type="file" onchange="submitFile()"/>
+                </div>
+                <div class="form-group type-group">
+                    {% for type in type_choice %}
+                    <label class="">
+                        <input type="radio" value="{{ type[0] }}" name="type">&nbsp;{{ type[1] }}
+                    </label>
+                    {% endfor %}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>抽奖</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="container"></div>
+<div id="menu">
+    <div class="lottery-list">
+    </div>
+    <div class="action">
+        <div class="btn btn-lottery-action" id="start">开始抽奖</div>
+        <div class="btn btn-lottery-action" id="stop">停止抽奖</div>
+        <!--<div class="btn btn-lottery-action" id="luckyers">中奖名单</div>-->
+    </div>
+    <!-- 抽奖个数：<input id="count" type="text" maxlength="3" value="1" /><br> -->
+</div>
+<div id="list">
+    <div class="title">中奖名单</div>
+    <div class="list-box"></div>
+</div>
+<div id="tip"></div>
+<div id="tip2">
+    <div class="lottery-text">当前奖项：<br>抽取名额：</div>
+</div>
+<div id="countdown"></div>
+<div id="info" class="hide">
+    <div>当前奖项：<span class="current-lottery-name"></span></div>
+    <div>剩　　余：<span class="current-lottery-remain"></span></div>
+</div>
+<audio id="music" src="./mp3/bg.mp3" preload="auto" controls loop="loop" class="hide"></audio>
+
+<script type="text/template" id="tplLotteryItem">
+    <% _.forEach(lottery, function(l) { %><div data-id="<%- l.id %>" class="btn btn-lottery-item"><%- l.name %></div><% }); %>
+</script>
+
+<script src="./js/jquery-2.2.4.min.js"></script>
+<script src="./js/three.js"></script>
+<script src="./js/tween.min.js"></script>
+<script src="./js/TweenMax.min.js"></script>
+<script src="./js/TrackballControls.js"></script>
+<script src="./js/CSS3DRenderer.js"></script>
+<script src="./js/lodash.js"></script>
+<script src="./js/OrbitControls.js"></script>
+<!--<script src="./js/WebGL.js"></script>-->
+<script src="./js/index.js"></script>
+</body>
+</html>

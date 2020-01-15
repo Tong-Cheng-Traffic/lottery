@@ -1,0 +1,173 @@
+html, body {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+body{
+	background: #000 url('../img/bg2.jpg') no-repeat center center;
+	background: #000 url('../img/bg.png') no-repeat center center;
+    background-size: cover;
+}
+
+#divRender{
+    width: 100%;
+    height: 100%;
+    border: solid 0px #ccc;
+}
+
+#info{
+	position: absolute;
+	color: #fff;
+	font-size: 20px;
+	top: 10px;
+	left: 10px;
+	z-index: 9;
+}
+
+#menu {
+	color: #fff;
+	position: absolute;
+	display: none;
+	left: 20px;
+	bottom: 20px;
+	text-align: center;
+}
+
+#menu div {
+	color: rgba(127, 255, 255, .75);
+	background: rgba(0, 0, 0, 0);
+	outline: 1px solid rgba(127, 255, 255, .75);
+	border: 0;
+	padding: 5px 10px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+#menu div:hover {
+	background-color: rgba(0, 255, 255, .5)
+}
+
+#menu div:active {
+	color: #000;
+	background-color: rgba(0, 255, 255, .75)
+}
+
+.hide{
+    display: none;
+}
+
+#tip {
+	box-sizing: border-box;
+	position: absolute;
+	display: none;
+	top: 20%;
+	left: 0;
+	right: 0; 
+	z-index: 999;
+	width: 400px;
+	margin: 0 auto;
+	transform:translate(0,-50%);
+	padding-left: 80px;
+	box-shadow: 1px solid rgba(127, 255, 255, .25);
+	border: 1px solid rgba(204, 204, 204, .9);
+	background: rgba(0, 127, 127, 0.9);
+	overflow: hidden;
+}
+.lottery-text {
+	padding: 20px 0;
+	font-size: 30px;
+	color: rgba(255, 255, 255, .9);
+}
+#countdown{
+	z-index: 1000;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%,-50%);
+	font-size: 300px;
+	opacity: 0;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+#luckResult {
+	position: absolute;
+	display: none;
+	top: 50%;
+	left: 0;
+	right: 0;
+	z-index: 1999;
+	width: 400px;
+	margin: 0 auto;
+	transform:translate(0,-50%);
+}
+
+.luckyer-list {
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 0 12px rgba(255, 255, 255, .9);
+	/* box-shadow: 0 0 12px rgba(255, 255, 255, .4); */
+	/* border: 1px solid rgba(255, 255, 255, .9); */
+	background: rgba(0,0,0,.8);
+	/* background: #0C192A; */
+	/* filter: contrast(100%) brightness(220%) hue-rotate(-35deg);
+	background-size: cover; */
+	padding: 40px 10px;
+	min-height: 200px;
+}
+
+.luckyer-list h2{
+	font-size: 30px;
+	margin: 0;
+	margin-bottom: 20px;
+	color: #fff;
+	font-weight: normal;
+}
+
+
+.luckyer-list .luckyer-item1,
+.luckyer-list .luckyer-item2,
+.luckyer-list .luckyer-item4,
+.luckyer-list .luckyer-item5 {
+	color: #fff;
+	font-size: 25px;
+	line-height: 1.4
+}
+.luckyer-list .luckyer-item2 {
+	float: left;
+	width: 50%;
+}
+.luckyer-list .luckyer-item4{
+	float: left;
+	width: 25%;
+}
+.luckyer-list .luckyer-item5{
+	float: left;
+	width: 20%;
+	font-size: 20px;
+}
+#luckResult.wide{
+	width: 860px;
+}
+
+#luckResult.wide .luckyer-list{
+    padding: 40px 20px;
+}
+
+
+#slogan{
+	z-index: 999;
+	position: fixed;
+    top: 50%;
+	transform:translate(0,-80%);
+	font-size: 100px;
+	opacity: 1;
+	color: #fff;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
